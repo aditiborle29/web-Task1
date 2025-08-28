@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to my Discriptive Website </title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: #4CAF50;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    nav .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    section h1, section h2 {
+      margin-bottom: 20px;
+      color: #4CAF50;
+    }
+
+    section p {
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+
+    img {
+      margin: 20px 0;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Features List */
+    #features ul {
+      list-style: none;
+      font-size: 18px;
+    }
+
+    #features li {
+      margin: 10px 0;
+    }
+
+    /* Contact Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    form input, form textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    form button {
+      background: #4CAF50;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #45a049;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <h2 class="logo">MyWebsite</h2>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about">
+    <h1>Welcome to My Descriptive Website</h1>
+    <p>This is a simple yet descriptive website made using HTML, CSS, and JavaScript. 
+       It shows how you can structure a webpage, style it beautifully, and add interactivity.</p>
+    <img src="https://via.placeholder.com/500" alt="Sample Image">
+  </section>
+
+  <!-- Features Section -->
+  <section id="features">
+    <h2>Key Features</h2>
+    <ul>
+      <li>✔️ Clean and Responsive Design</li>
+      <li>✔️ Easy Navigation</li>
+      <li>✔️ Lightweight and Fast</li>
+      <li>✔️ Interactive Elements with JavaScript</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5"></textarea>
+      <button type="button" id="sendBtn">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 MyWebsite | Made with ❤️ using HTML, CSS & JS</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById("sendBtn").addEventListener("click", function() {
+      alert("Thank you for your message! We'll get back to you soon. 😊");
+    });
+  </script>
+
+</body>
+</html>
