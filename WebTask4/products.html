@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Listing</title>
+  <style>
+    body { font-family:Arial; margin:20px; }
+    .controls { margin-bottom:20px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px; }
+    .card { border:1px solid #ccc; padding:10px; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <h2>Product Listing</h2>
+  <div class="controls">
+    <select id="categoryFilter" onchange="filterProducts()">
+      <option value="all">All</option>
+      <option value="electronics">Electronics</option>
+      <option value="clothing">Clothing</option>
+      <option value="books">Books</option>
+      <option value="Beauty Products">Beauty Products</option>
+    </select>
+    <select id="sortBy" onchange="filterProducts()">
+      <option value="none">Sort By</option>
+      <option value="priceAsc">Price: Low to High</option>
+      <option value="priceDesc">Price: High to Low</option>
+      <option value="rating">Rating</option>
+    </select>
+  </div>
+
+  <div id="productGrid" class="grid"></div>
+
+  <script>
+    const products = [
+      {name:"Smartphone", category:"electronics", price:500, rating:4.5},
+      {name:"T-shirt", category:"clothing", price:20, rating:4.2},
+      {name:"Laptop", category:"electronics", price:1200, rating:4.8},
+      {name:"Novel", category:"books", price:15, rating:4.0},
+      {name:"Headphones", category:"electronics", price:100, rating:4.3},
+      {name:"Jeans", category:"clothing", price:40, rating:4.1},
+      {name:"Story book", category:"books", price:13, rating:4.3},
+      {name:"History", category:"books", price:15, rating:3.5},
+      {name:"Discovery", category:"books", price:21, rating:3.7},
+      {name:"Magzines", category:"books", price:23, rating:4.2},
+      {name:"Dresses", category:"clothing", price:23, rating:4.4},
+      {name:"Eyeshadow Pallete", category:"Beauty Products", price:13, rating:4.2},
+      {name:"compact powder", category:"Beauty Products", price:18, rating:4.3},
+      {name:"Lipsticks", category:"Beauty Products", price:26, rating:4.1},
+      {name:"Cleansers", category:"Beauty Products", price:19, rating:3.5},
+      {name:"Foundation", category:"Beauty Products", price:28, rating:4.0},
+      {name:"Sunscreens", category:"Beauty Products", price:15, rating:4.1},
+      {name:"night wear", category:"clothing", price:42, rating:4.3},
+      {name:"hoody", category:"clothing", price:36, rating:4.1},
+      {name:"tops", category:"clothing", price:40, rating:4.1},
+      {name:"Smart tv", category:"electronics", price:105, rating:4.5},
+      {name:"Powerbank", category:"electronics", price:94, rating:4.4},
+      
+    ];
+
+    function displayProducts(list) {
+      const grid = document.getElementById("productGrid");
+      grid.innerHTML = "";
+      list.forEach(p => {
+        grid.innerHTML += `<div class="card">
+          <h3>${p.name}</h3>
+          <p>Category: ${p.category}</p>
+          <p>Price: $${p.price}</p>
+          <p>Rating: ⭐${p.rating}</p>
+        </div>`;
+      });
+    }
+
+    function filterProducts() {
+      const category = document.getElementById("categoryFilter").value;
+      const sortBy = document.getElementById("sortBy").value;
+      let filtered = products;
+
+      if(category !== "all") {
+        filtered = filtered.filter(p => p.category === category);
+      }
+
+      if(sortBy === "priceAsc") filtered.sort((a,b)=>a.price-b.price);
+      if(sortBy === "priceDesc") filtered.sort((a,b)=>b.price-a.price);
+      if(sortBy === "rating") filtered.sort((a,b)=>b.rating-a.rating);
+
+      displayProducts(filtered);
+    }
+
+    filterProducts();
+  </script>
+</body>
+</html>
